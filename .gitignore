@@ -1,0 +1,6 @@
+.idea/
+.sublime/
+.vscode/
+.cache/
+DS_Store
+Thumbs.db
