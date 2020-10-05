@@ -36,3 +36,15 @@ assert.IsType(t, ToObject{}, dest)
 // Add context to mapping process
 dest := mapper.MustMap(in, ToObject{}, gomapper.Options{"yourContextData": 1234})
 ```
+
+````go
+// Map nested struct
+func (c *MyConverter) Convert(obj interface{}, options gomapper.Options) interface{} {
+    in := obj.(FromObject)
+
+    return ToObject{
+        ....,
+        SomeCoolObject: c.GetMapper().MustMap(in.NestedObject, ToSuperModel{}, nil),
+    }
+}
+````
